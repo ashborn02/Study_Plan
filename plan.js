@@ -45,7 +45,9 @@
       </div>`;
 
   document.body.classList.add('plan-page');
-  document.body.innerHTML = `
+  document.querySelectorAll('body > noscript').forEach((el) => el.remove());
+  // Add the page frame without replacing <body>, so nothing else on the page (styles, scripts) is lost.
+  document.body.insertAdjacentHTML('afterbegin', `
     <header class="plan-header" id="topbar">
       <nav class="site-nav" aria-label="Main">
         <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">SH</span><span class="brand-name">Study Hub</span></a>
@@ -75,7 +77,7 @@
         <button class="btn" type="button" id="prevButton" aria-label="Previous sheet">◀<span class="btn-label"> Prev</span></button>
         <button class="btn" type="button" id="nextButton" aria-label="Next sheet"><span class="btn-label">Next </span>▶</button>
       </nav>
-    </footer>`;
+    </footer>`);
 
   // ---------- Overview sheet ----------
 
